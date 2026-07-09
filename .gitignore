@@ -1,0 +1,9 @@
+# Environment variables / Secrets
+.env
+.env.local
+.env.*.local
+
+# If you use python-dotenv or run locally
+.env.validation
+
+.DS_Store
