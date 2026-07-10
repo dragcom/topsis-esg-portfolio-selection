@@ -34,6 +34,24 @@ The dataset used in this project was extracted, transformed, and standardized th
 | Description | This dataset integrates ESG, financial, media, and market information from multiple sources into a standardized company-level dataset. <br>The original data were collected from four major sources: <br>- **Regulatory financial data** from SEC EDGAR Form 10-K filings, audited financial statements, operational metrics, and corporate risk disclosures<br>- **Institutional financial and ESG data** from SEC XBRL, Alpha Vantage, World Bank, Kaggle, and company overview datasets<br>- **Public media coverage** from NewsAPI and Alpha Vantage news reports capturing corporate events, public perception, and market sentiment<br>- **Quantitative market performance data** from Yahoo Finance, including historical prices, trading volume, volatility, and valuation signals|
 | Useful Columns |- Company identifiers<br>- ESG indicators<br>- Financial indicators:  profitability indicators, growth indicators, financial health indicators, market performance variables<br>- Risk measures<br>- Controversial News|
 
+## Data Description
+
+To better understand the structure of the integrated ESG-financial dataset, two descriptive analyses were conducted: normalized indicator distribution and indicator dispersion.
+
+![Dimension Boxplot](Figures/dimension_boxplot.png)
+
+The boxplot shows the distribution of normalized indicators across ESG, financial, and risk dimensions. Several dimensions, such as **Governance**, **Financial health**, and **Risk**, show wider value ranges, indicating substantial differences across companies. In contrast, some ESG-related indicators such as **Environmental** and **Social** are more concentrated near lower values, with a few high-performing outliers.
+
+This distribution suggests that the dataset contains uneven variation across different dimensions. Some indicators are highly discriminative, while others provide less separation among companies. Therefore, a data-driven weighting method is needed to reflect the actual information carried by each indicator.
+
+![Indicator Dispersion](Figures/data_dispersion.png)
+
+The dispersion analysis further supports the use of entropy weighting. Indicators such as **Environmental Score**, **Debt-to-Equity Ratio**, **Social Score**, and **ROE** show relatively high coefficients of variation, meaning they provide stronger differentiation across companies. These indicators contain more useful information for ranking because companies differ more clearly on these dimensions.
+
+By contrast, indicators such as **Beta**, **Governance Quality**, **30-Day Volatility**, and **Profit Margin** show lower dispersion, suggesting weaker discriminatory power in this sample.
+
+Overall, the descriptive results show that the dataset is suitable for an **entropy-weighted TOPSIS model**. Since entropy weighting assigns higher weights to indicators with greater variation and stronger information content, it provides a more objective and data-driven way to construct the final company ranking.
+
 # Methodology
 
 ## Multi-Criteria Decision-Making Model
@@ -59,11 +77,9 @@ Each indicator was classified as either a **benefit indicator**, where higher va
 
 The final ranking model was built using an **Entropy-weighted TOPSIS** procedure. Unlike traditional AHP-based weighting, the entropy method assigns weights based on the information contained in the data. Indicators with greater variation across companies receive higher weights, while indicators with limited differences receive lower weights.
 
-The model construction follows the workflow below:
+A higher TOPSIS score indicates that a company is closer to the ideal ESG-financial investment profile. The model construction follows the workflow below:
 
-[![Entropy-Weighted TOPSIS Workflow](Figures/entropy_weighted_topsis_workflow.png)](figures/entropy_weighted_topsis_workflow.png)
-
-A higher TOPSIS score indicates that a company is closer to the ideal ESG-financial investment profile.
+[![Entropy-Weighted TOPSIS Workflow](Figures/entropy_weighted_topsis_workflow.png)](Figures/entropy_weighted_topsis_workflow.png)
 
 ### Controversy Penalty Adjustment
 
