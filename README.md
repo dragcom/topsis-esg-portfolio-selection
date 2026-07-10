@@ -61,7 +61,7 @@ The final ranking model was built using an **Entropy-weighted TOPSIS** procedure
 
 The model construction follows the workflow below:
 
-[![Entropy-Weighted TOPSIS Workflow](figures/entropy_weighted_topsis_workflow.png)](figures/entropy_weighted_topsis_workflow.png)
+[![Entropy-Weighted TOPSIS Workflow](Figures/entropy_weighted_topsis_workflow.png)](figures/entropy_weighted_topsis_workflow.png)
 
 A higher TOPSIS score indicates that a company is closer to the ideal ESG-financial investment profile.
 
@@ -75,7 +75,7 @@ The adjusted score reflects both the company’s ESG-financial performance and i
 
 ## Ranking
 
-![Top 5 vs Bottom 5 Technology Companies](figures/top5_vs_bottom5_technology_companies.png)
+![Top 5 vs Bottom 5 Technology Companies](Figures/top5_vs_bottom5_technology_companies.png)
 
 The ranking results show a clear performance gap between the top-ranked and bottom-ranked technology companies under the controversy-adjusted entropy-weighted TOPSIS framework. 
 Among the **top 5 companies**, **Dell** ranks first with the highest adjusted TOPSIS score of **0.506**, showing a substantial lead over the rest of the sample. **Seagate** ranks second with a score of **0.277**, followed by **NVIDIA** with **0.239**. **Micron** and **Alphabet (Google)** are closely matched, both achieving an adjusted TOPSIS score of **0.224**.
@@ -102,7 +102,7 @@ The results also reflect a multi-objective optimization logic. The model does no
 
 ## Importance
 
-![Entropy-Weighted Contribution](figures/entropy_weighted_contribution.png)
+![Entropy-Weighted Contribution](Figures/entropy_weighted_contribution.png)
 
 The entropy-weighted results show that **Environmental** factors receive the largest contribution (**25.3%**), followed by **Profitability** (**21.2%**), **Market performance** (**18.3%**), and **Social** indicators (**17.0%**). **Growth** contributes **10.0%**, while **Financial health** (**4.9%**), **Risk** (**2.3%**), and **Governance** (**1.1%**) receive relatively smaller weights.
 
@@ -117,7 +117,7 @@ Overall, the importance analysis confirms that the final ranking is driven by a 
 
 ## Sensitivity
 
-![Sensitivity Analysis of Controversy Penalty](figures/sensitivity_analysis_controversy_penalty.png)
+![Sensitivity Analysis of Controversy Penalty](Figures/sensitivity_analysis_controversy_penalty.png)
 
 The sensitivity analysis evaluates how company rankings change as the **controversy penalty parameter** \\(\lambda\\) increases from **0.10** to **0.40**. The results show that the model is generally robust, with the top-ranked firms maintaining relatively stable positions across different penalty settings.
 
